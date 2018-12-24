@@ -5,6 +5,14 @@ FSJS project 2 - List Filter and Pagination
    
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
+const studentList = document.querySelector('ul');
+const singleStudent = studentList.children;
+const studentsPerPage = 10;
+
+//Function to determine # of pages based on # of students
+function numberOfPages() {
+let pages = Math.ceil(eachStudent.length / studentsPerPage);
+return pages;
 
 /*** 
    Add your global variables that store the DOM elements you will 
