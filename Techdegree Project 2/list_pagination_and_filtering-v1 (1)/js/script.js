@@ -14,6 +14,26 @@ function numberOfPages() {
 let pages = Math.ceil(eachStudent.length / studentsPerPage);
 return pages;
 
+// function that determines how many pages will be created based on number of studentsPerPage
+
+const totalPages = () => {
+   let pageNumbers = Math.ceil(singleStudent.length / studentsPerPage);
+   return pageNumbers;
+}
+
+// function that displays 10 students per page
+
+const tenPeople = () => {
+   for (let i = 0; i < singleStudent.length; i++) {
+       if (i < studentsPerPage) {
+          singleStudent[i].style.display= '';
+       } else {
+           singleStudent[i].style.display= 'none';
+       }
+   }
+}
+}
+
 /*** 
    Add your global variables that store the DOM elements you will 
    need to reference and/or manipulate. 
@@ -56,3 +76,6 @@ return pages;
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
+totalPages();
+tenPeople();
+appendPageLinks();
