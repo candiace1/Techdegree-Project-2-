@@ -5,39 +5,56 @@ FSJS project 2 - List Filter and Pagination
    
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
-const studentList = document.querySelector('ul');
-const singleStudent = studentList.children;
-const studentsPerPage = 10;
-
-//Function to determine # of pages based on # of students
-function numberOfPages() {
-let pages = Math.ceil(eachStudent.length / studentsPerPage);
-return pages;
-
-// function that determines how many pages will be created based on number of studentsPerPage
-
-const totalPages = () => {
-   let pageNumbers = Math.ceil(singleStudent.length / studentsPerPage);
-   return pageNumbers;
-}
+const studentList = document.querySelectorAll('.student-item');
 
 // function that displays 10 students per page
 
-const tenPeople = () => {
-   for (let i = 0; i < singleStudent.length; i++) {
-       if (i < studentsPerPage) {
-          singleStudent[i].style.display= '';
+
+function tenPeople (studentList, page) {
+   for (let i = 0; i < studentList.length; i++) {
+      if(i >= (page * 10) - 10 && i < (page * 10)){
+          studentList[i].style.display= '';
        } else {
-           singleStudent[i].style.display= 'none';
+           studentList[i].style.display= 'none';
        }
    }
 }
-}
+tenPeople(studentList, 1);
+
+
+function pageButtons(studentList){
+   const buttonDiv = document.createElement('div');
+   buttonDiv.className = 'buttons';
+   let ul = document.createElement( "ul" );
+   let li = document.createElement('li');
+   const a = document.createElement('a');
+ 
+   li.appendChild(a);
+   ul.appendChild(li);
+ const currentpage = document.getElementsByClassName('active');
+   const pageNumber = Math.max(studentList.length / 10);
+   for(let i = 0; i < pageNumber; i++){
+     a.textContent = i + 1;
+     a.addEventListener('click', (event)=> {
+       let click = event.target;
+       if(click.className = 'active'){
+         tenPeople(studentList, click.textContent);
+         click.classList.remove('active');
+       }
+       else {
+         showPage(studentList, currentPage);
+       }
+     })
+   }
+   const mainPage = document.querySelector('main');
+   mainPage.appendChild(ul);
+ }//end pageButtons
+
 
 /*** 
    Add your global variables that store the DOM elements you will 
    need to reference and/or manipulate. 
-   
+   ()
    But be mindful of which variables should be global and which 
    should be locally scoped to one of the two main functions you're 
    going to create. A good general rule of thumb is if the variable 
@@ -76,6 +93,5 @@ const tenPeople = () => {
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
-totalPages();
-tenPeople();
-appendPageLinks();
+
+
