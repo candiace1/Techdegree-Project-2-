@@ -66,8 +66,8 @@ buttonDiv.addEventListener('click', (event) => {
   let minimum = maximum - 10;
   for (let i = 0; i < studentList.length; i++) {
     if (i >=mininmum && i < maximum) {
-      studentList[i].style.display = '';
-    else{
+      studentList[i].style.display = ''; }
+    else {
       
       studentList[i].style.display = 'none';
     }
@@ -75,7 +75,7 @@ buttonDiv.addEventListener('click', (event) => {
   }
 
 
-}
+
 /*** 
    Add your global variables that store the DOM elements you will 
    need to reference and/or manipulate. 
