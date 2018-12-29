@@ -113,10 +113,4 @@ buttonDiv.addEventListener('click', (event) => {
    functionality to the pagination buttons.
 ***/
 
-
-
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
-
-
+) // end of buttonDiv EventListener
