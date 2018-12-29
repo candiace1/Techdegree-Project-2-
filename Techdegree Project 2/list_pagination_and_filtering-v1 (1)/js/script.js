@@ -34,7 +34,7 @@ function pageButtons(studentList){
    const pageNumber = Math.max(studentList.length / 10);
    for(let i = 0; i < pageNumber; i++){
      a.textContent = i + 1;
-     a.addEventListener('click', (event)=> {
+     a.addEventListener('click', (event) => {
        let click = event.target;
        if(click.className = 'active'){
          tenPeople(studentList, click.textContent);
@@ -65,7 +65,7 @@ function pageButtons(studentList){
            studentList[i].style.display = 'none';
          }
          }
-       }
+       })
      })
    }
    const mainPage = document.querySelector('main');
@@ -136,4 +136,4 @@ function pageButtons(studentList){
    functionality to the pagination buttons.
 ***/
 
-) // end of buttonDiv EventListener
+// ) // end of buttonDiv EventListener
