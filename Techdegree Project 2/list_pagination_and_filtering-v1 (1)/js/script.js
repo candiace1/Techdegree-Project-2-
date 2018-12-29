@@ -49,18 +49,33 @@ function pageButtons(studentList){
    mainPage.appendChild(ul);
  }
  
- //end pageButtons add an event listener to the pagination div
+ // li for page number text
   for (let i = 0; i < studentList(); i+= 1) {
     let li = document.createElement('li');
     let a = documetn.createElement('a');
     a.className = 'active';
     a.href = '#';
-    a.textContent = i;
+    a.textInfo = i;
     buttonDiv.appendChild(li);
 
   }
+//end pageButtons add an event listener to the pagination div
+buttonDiv.addEventListener('click', (event) => {
+  let buttonNumber = parent(event.target.textInfo);
+  let maximum = buttonNumber * 10;
+  let minimum = maximum - 10;
+  for (let i = 0; i < studentList.length; i++) {
+    if (i >=mininmum && i < maximum) {
+      studentList[i].style.display = '';
+    else{
+      
+      studentList[i].style.display = 'none';
+    }
+    }
+  }
 
 
+}
 /*** 
    Add your global variables that store the DOM elements you will 
    need to reference and/or manipulate. 
