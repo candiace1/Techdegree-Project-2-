@@ -5,11 +5,10 @@ FSJS project 2 - List Filter and Pagination
    
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
+// selects entire list of students
 const studentList = document.querySelectorAll('.student-item');
 
 // function that displays 10 students per page
-
-
 function tenPeople (studentList, page) {
    for (let i = 0; i < studentList.length; i++) {
       if(i >= (page * 10) - 10 && i < (page * 10)){
@@ -21,7 +20,7 @@ function tenPeople (studentList, page) {
 }
 tenPeople(studentList, 1);
 
-
+//create and append pagination links
 function pageButtons(studentList){
    const buttonDiv = document.createElement('div');
    buttonDiv.className = 'buttons';
@@ -48,7 +47,18 @@ function pageButtons(studentList){
    }
    const mainPage = document.querySelector('main');
    mainPage.appendChild(ul);
- }//end pageButtons
+ }
+ 
+ //end pageButtons add an event listener to the pagination div
+  for (let i = 0; i < studentList(); i+= 1) {
+    let li = document.createElement('li');
+    let a = documetn.createElement('a');
+    a.className = 'active';
+    a.href = '#';
+    a.textContent = i;
+    buttonDiv.appendChild(li);
+
+  }
 
 
 /*** 
