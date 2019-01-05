@@ -29,7 +29,7 @@ function pageButtons(studentList){
  const li = document.createElement('li');
  const ul = document.createElement('ul');
  const buttonDiv = document.createElement('div');
-  buttonDiv.className = 'buttons';
+  buttonDiv.className = 'pagination';
  const mainPage = document.querySelector('.page');
  mainPage.appendChild(buttonDiv);
  buttonDiv.appendChild(ul);
